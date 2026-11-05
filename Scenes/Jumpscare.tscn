@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bhkyim5f364hn"]
+
+[ext_resource type="Script" uid="uid://b4uo7frgkax3w" path="res://Scripts/jumpscare.gd" id="1_vpfse"]
+[ext_resource type="Texture2D" uid="uid://c41f7up82kfv0" path="res://Assets/jump_scare_face.png" id="1_wsj7o"]
+[ext_resource type="AudioStream" uid="uid://dlup4raiaj8gi" path="res://Assets/scream.wav" id="2_t6jni"]
+
+[node name="Jumpscare" type="CanvasLayer" unique_id=493148821]
+layer = 100
+visible = false
+script = ExtResource("1_vpfse")
+
+[node name="Face" type="TextureRect" parent="." unique_id=199429131]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wsj7o")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Scream" type="AudioStreamPlayer" parent="." unique_id=1456414127]
+stream = ExtResource("2_t6jni")
+
+[node name="Label" type="Label" parent="." unique_id=1443884895]
+offset_left = 461.0
+offset_top = 71.0
+offset_right = 716.0
+offset_bottom = 94.0
+text = "Why are you soo bad at physics !!"

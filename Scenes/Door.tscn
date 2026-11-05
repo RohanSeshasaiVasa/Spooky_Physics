@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cudcvbu5dlc64"]
+
+[ext_resource type="Texture2D" uid="uid://bwx6d2kfa7qr1" path="res://Assets/door.png" id="1_38ogf"]
+[ext_resource type="Script" uid="uid://t5dmgqor1bhg" path="res://Scripts/door.gd" id="1_mw28t"]
+[ext_resource type="LabelSettings" uid="uid://c5i4buj4vu1qn" path="res://Assets/pormpt_label.tres" id="3_7mbvs"]
+[ext_resource type="Texture2D" uid="uid://dwwfd1siliwjq" path="res://Assets/torque_door_diagram.png" id="4_1fk65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38ogf"]
+size = Vector2(64, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mw28t"]
+size = Vector2(64, 96)
+
+[node name="Door" type="Node2D" unique_id=216470509]
+script = ExtResource("1_mw28t")
+
+[node name="Hinge" type="Node2D" parent="." unique_id=2017975613]
+
+[node name="Panel" type="StaticBody2D" parent="Hinge" unique_id=1723970037]
+
+[node name="Sprite2D" type="Sprite2D" parent="Hinge/Panel" unique_id=842943271]
+position = Vector2(32, 0)
+texture = ExtResource("1_38ogf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hinge/Panel" unique_id=1112822463]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_38ogf")
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1655756147]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1367331201]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_mw28t")
+
+[node name="Prompt" type="Label" parent="." unique_id=1941139618]
+offset_left = -28.0
+offset_top = -40.0
+offset_right = 92.0
+offset_bottom = -17.0
+text = "[E] Open the door"
+label_settings = ExtResource("3_7mbvs")
+horizontal_alignment = 1
+
+[node name="PuzzleUI" type="CanvasLayer" parent="." unique_id=631164541]
+process_mode = 3
+visible = false
+
+[node name="Dim" type="ColorRect" parent="PuzzleUI" unique_id=966433274]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="Center" type="CenterContainer" parent="PuzzleUI/Dim" unique_id=1907821800]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Box" type="PanelContainer" parent="PuzzleUI/Dim/Center" unique_id=1733454334]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="PuzzleUI/Dim/Center/Box" unique_id=1524972613]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PuzzleUI/Dim/Center/Box/VBox" unique_id=310286696]
+layout_mode = 2
+text = "THE BEDROOM DOOR"
+horizontal_alignment = 1
+
+[node name="Diagram" type="TextureRect" parent="PuzzleUI/Dim/Center/Box/VBox" unique_id=959147649]
+layout_mode = 2
+texture = ExtResource("4_1fk65")
+stretch_mode = 3
+
+[node name="Question" type="Label" parent="PuzzleUI/Dim/Center/Box/VBox" unique_id=1639277841]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Hint" type="Label" parent="PuzzleUI/Dim/Center/Box/VBox" unique_id=79437547]
+layout_mode = 2
+text = "Torque: τ = F × r"
+
+[node name="AnswerInput" type="LineEdit" parent="PuzzleUI/Dim/Center/Box/VBox" unique_id=102779827]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Torque: τ = F × r"
+
+[node name="PushButton" type="Button" parent="PuzzleUI/Dim/Center/Box/VBox" unique_id=921545328]
+layout_mode = 2
+text = "Push !"
+
+[connection signal="pressed" from="PuzzleUI/Dim/Center/Box/VBox/PushButton" to="." method="_on_push_button_pressed"]
