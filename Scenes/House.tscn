@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://6duv3lgxeirn" path="res://Scenes/Commode.tscn" id="4_c8aik"]
 [ext_resource type="Script" uid="uid://bdcuievinuryt" path="res://Scripts/warning.gd" id="5_cpag2"]
 [ext_resource type="PackedScene" uid="uid://cveng4y8uul1x" path="res://Scenes/wheel_nut.tscn" id="5_jda31"]
+[ext_resource type="PackedScene" uid="uid://dvutstbhpd8qg" path="res://Scenes/fan.tscn" id="7_2u2x3"]
+[ext_resource type="PackedScene" uid="uid://bm2srmnak33dc" path="res://Scenes/tea.tscn" id="8_gfhlv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8l06"]
 texture = ExtResource("1_ftrsn")
@@ -46,6 +48,9 @@ position = Vector2(-272, -27)
 [node name="Commode" parent="." unique_id=738299177 instance=ExtResource("4_c8aik")]
 position = Vector2(530, 66)
 
+[node name="Fan" parent="." unique_id=300499059 instance=ExtResource("7_2u2x3")]
+position = Vector2(752, 509)
+
 [node name="WheelNut" parent="." unique_id=217909414 instance=ExtResource("5_jda31")]
 position = Vector2(732, 205)
 
@@ -85,5 +90,8 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "I accept"
+
+[node name="Tea" parent="." unique_id=301102937 instance=ExtResource("8_gfhlv")]
+position = Vector2(167, 528)
 
 [connection signal="pressed" from="Warning/Center/VBox/AcceptButton" to="Warning" method="_on_accept_button_pressed"]
