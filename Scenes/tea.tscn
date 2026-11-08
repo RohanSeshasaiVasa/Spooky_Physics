@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://6qjmxi7di5eb" path="res://Assets/ghost.png" id="4_wyyjc"]
 [ext_resource type="Material" uid="uid://b3wx0q6hjkj6w" path="res://Assets/unshaded.tres" id="5_sy3t5"]
 [ext_resource type="Texture2D" uid="uid://b5weshxgenwky" path="res://Assets/tea_diagram.png" id="6_wyyjc"]
+[ext_resource type="Script" uid="uid://2jvtafrewlro" path="res://Scripts/puzzle_ui.gd" id="7_6jo7a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38ogf"]
 size = Vector2(192, 40)
@@ -54,6 +55,7 @@ horizontal_alignment = 1
 [node name="PuzzleUI" type="CanvasLayer" parent="." unique_id=631164541]
 process_mode = 3
 visible = false
+script = ExtResource("7_6jo7a")
 
 [node name="Dim" type="ColorRect" parent="PuzzleUI" unique_id=966433274]
 anchors_preset = 15
@@ -64,9 +66,12 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.627451)
 
 [node name="Center" type="CenterContainer" parent="PuzzleUI/Dim" unique_id=1907821800]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Box" type="PanelContainer" parent="PuzzleUI/Dim/Center" unique_id=1733454334]
 custom_minimum_size = Vector2(460, 0)

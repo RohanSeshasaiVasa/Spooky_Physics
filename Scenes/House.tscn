@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cveng4y8uul1x" path="res://Scenes/wheel_nut.tscn" id="5_jda31"]
 [ext_resource type="PackedScene" uid="uid://dvutstbhpd8qg" path="res://Scenes/fan.tscn" id="7_2u2x3"]
 [ext_resource type="PackedScene" uid="uid://bm2srmnak33dc" path="res://Scenes/tea.tscn" id="8_gfhlv"]
+[ext_resource type="Script" uid="uid://be8m50mjlwb5" path="res://Scripts/title_screen.gd" id="9_ppwsj"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gfhlv"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -118,4 +119,108 @@ position = Vector2(167, 528)
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=839438627]
 color = Color(0.101960786, 0.078431375, 0.14901961, 1)
 
+[node name="TitleScreen" type="CanvasLayer" parent="." unique_id=1634427986]
+process_mode = 3
+layer = 55
+visible = false
+script = ExtResource("9_ppwsj")
+
+[node name="Background" type="ColorRect" parent="TitleScreen" unique_id=523422932]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.039215688, 0.023529412, 0.03137255, 1)
+
+[node name="Menu" type="CenterContainer" parent="TitleScreen" unique_id=2022301289]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="TitleScreen/Menu" unique_id=598010672]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="GameTitle" type="Label" parent="TitleScreen/Menu/VBox" unique_id=1922590159]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.23137255, 0.23137255, 1)
+theme_override_font_sizes/font_size = 64
+text = "SPOOKY PHYSICS"
+horizontal_alignment = 1
+
+[node name="SubTitle" type="Label" parent="TitleScreen/Menu/VBox" unique_id=12097986]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65882355, 0.6117647, 0.72156864, 1)
+theme_override_font_sizes/font_size = 18
+text = "Do your chores. Mind the physics."
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="TitleScreen/Menu/VBox" unique_id=1863707441]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start"
+
+[node name="HowToPlayButton" type="Button" parent="TitleScreen/Menu/VBox" unique_id=259143643]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "How to Play"
+
+[node name="QuitButton" type="Button" parent="TitleScreen/Menu/VBox" unique_id=710901658]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 2
+text = "Quit"
+
+[node name="HowToPlay" type="CenterContainer" parent="TitleScreen" unique_id=528700427]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Box" type="PanelContainer" parent="TitleScreen/HowToPlay" unique_id=1971294134]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="TitleScreen/HowToPlay/Box" unique_id=762975346]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="TitleScreen/HowToPlay/Box/VBox" unique_id=357564899]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.78039217, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "HOW TO PLAY"
+horizontal_alignment = 1
+
+[node name="Instructions" type="Label" parent="TitleScreen/HowToPlay/Box/VBox" unique_id=1021805345]
+layout_mode = 2
+text = "WASD / Arrow keys  -  walk
+E  -  interact with a chore
+Enter  -  submit your answer
+Esc  -  step back from a puzzle
+
+Finish every chore on tonight's list. Each one is a physics problem: torque, couple, rotational motion and linear motion.
+
+Use too little force and nothing happens.
+Use too much... and something breaks.
+
+You have been warned."
+autowrap_mode = 2
+
+[node name="BackButton" type="Button" parent="TitleScreen/HowToPlay/Box/VBox" unique_id=594668429]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
 [connection signal="pressed" from="Warning/Center/VBox/AcceptButton" to="Warning" method="_on_accept_button_pressed"]
+[connection signal="pressed" from="TitleScreen/Menu/VBox/StartButton" to="TitleScreen" method="_on_start_button_pressed"]
+[connection signal="pressed" from="TitleScreen/Menu/VBox/HowToPlayButton" to="TitleScreen" method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="TitleScreen/Menu/VBox/QuitButton" to="TitleScreen" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="TitleScreen/HowToPlay/Box/VBox/BackButton" to="TitleScreen" method="_on_back_button_pressed"]

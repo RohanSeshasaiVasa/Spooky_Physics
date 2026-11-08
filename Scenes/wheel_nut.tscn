@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://b3wx0q6hjkj6w" path="res://Assets/unshaded.tres" id="3_m3ar2"]
 [ext_resource type="Texture2D" uid="uid://n4w1lu17hnjx" path="res://Assets/couple_diagram.png" id="4_8n88y"]
 [ext_resource type="LabelSettings" uid="uid://c5i4buj4vu1qn" path="res://Assets/pormpt_label.tres" id="4_g4hnq"]
+[ext_resource type="Script" uid="uid://2jvtafrewlro" path="res://Scripts/puzzle_ui.gd" id="5_8es50"]
 [ext_resource type="Texture2D" uid="uid://b86b42850tyhv" path="res://Assets/wheel_brace.png" id="5_8n88y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3ar2"]
@@ -42,6 +43,7 @@ horizontal_alignment = 1
 [node name="PuzzleUI" type="CanvasLayer" parent="." unique_id=631164541]
 process_mode = 3
 visible = false
+script = ExtResource("5_8es50")
 
 [node name="Dim" type="ColorRect" parent="PuzzleUI" unique_id=966433274]
 anchors_preset = 15
@@ -52,9 +54,12 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.627451)
 
 [node name="Center" type="CenterContainer" parent="PuzzleUI/Dim" unique_id=1907821800]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Box" type="PanelContainer" parent="PuzzleUI/Dim/Center" unique_id=1733454334]
 custom_minimum_size = Vector2(460, 0)

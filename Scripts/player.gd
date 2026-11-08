@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	update_animation(direction)
 	
 func _process(delta: float) -> void:
-	if randf() < 0.008:
+	if randf() < 0.001:
 		flashlight.energy = randf_range(0.1, 0.5)
 	else:
 		flashlight.energy = lerpf(flashlight.energy, light_energy, 0.1)
