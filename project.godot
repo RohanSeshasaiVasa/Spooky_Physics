@@ -18,6 +18,7 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 JumpScare="*uid://bhkyim5f364hn"
+ChoreList="*uid://c57d7mhxuvdg"
 
 [display]
 

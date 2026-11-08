@@ -66,6 +66,7 @@ func serve_tea() -> void:
 	var tween := create_tween().set_parallel()
 	tween.tween_property(ghost, "modulate:a", 0.0, 1.5)
 	tween.tween_property(cup, "modulate:a", 0.0, 1.5)
+	ChoreList.finish("Tea", true)
 	
 func fly_off_table() -> void:
 	is_done = true
@@ -74,7 +75,8 @@ func fly_off_table() -> void:
 	tween.tween_property(cup, "scale", Vector2(0.6, 0.6), 0.2)
 	tween.tween_callback(JumpScare.play)
 	tween.tween_property(cup, "modulate:a", 0.0, 0.3)
-
+	ChoreList.finish("Tea", false)
+	
 func allow_retry() -> void:
 	enabled = true
 	prompt.visible = player_nearby

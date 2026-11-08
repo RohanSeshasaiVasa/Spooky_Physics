@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bwx6d2kfa7qr1" path="res://Assets/door.png" id="1_38ogf"]
 [ext_resource type="Script" uid="uid://t5dmgqor1bhg" path="res://Scripts/door.gd" id="1_mw28t"]
 [ext_resource type="LabelSettings" uid="uid://c5i4buj4vu1qn" path="res://Assets/pormpt_label.tres" id="3_7mbvs"]
+[ext_resource type="Material" uid="uid://b3wx0q6hjkj6w" path="res://Assets/unshaded.tres" id="3_bgsld"]
 [ext_resource type="Texture2D" uid="uid://dwwfd1siliwjq" path="res://Assets/torque_door_diagram.png" id="4_1fk65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38ogf"]
@@ -33,6 +34,7 @@ position = Vector2(32, 0)
 shape = SubResource("RectangleShape2D_mw28t")
 
 [node name="Prompt" type="Label" parent="." unique_id=1941139618]
+material = ExtResource("3_bgsld")
 offset_left = -28.0
 offset_top = -40.0
 offset_right = 92.0

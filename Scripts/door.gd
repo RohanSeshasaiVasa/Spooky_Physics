@@ -29,6 +29,7 @@ func open_door() -> void:
 	var tween := create_tween()
 	tween.tween_property(hinge, "rotation_degrees", 90.0, 0.6) \
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	ChoreList.finish("Door", true)
 
 func _on_push_button_pressed() -> void:
 	var force := answer_input.text.to_float()
@@ -56,4 +57,5 @@ func break_door() -> void:
 	tween.tween_property(hinge, "rotation_degrees", 110.0, 0.25)
 	tween.tween_property(hinge, "position", Vector2(8, 40), 0.25)
 	tween.tween_property(hinge, "modulate", Color(0.5, 0.5, 0.5), 0.25)
+	ChoreList.finish("Door", false)
 	JumpScare.play()

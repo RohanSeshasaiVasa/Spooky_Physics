@@ -30,6 +30,7 @@ func open_lid() -> void:
 	var tween := create_tween()
 	tween.tween_property(hinge, "scale:y", 0.15, 0.5) \
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	ChoreList.finish("Commode", true)
 
 func _on_push_button_pressed() -> void:
 	var force := answer_input.text.to_float()
@@ -58,4 +59,5 @@ func break_lid() -> void:
 	tween.tween_property(hinge, "position", hinge.position + Vector2(40, 70), 0.35)
 	tween.tween_property(hinge, "rotation_degrees", 200.0, 0.35)
 	tween.tween_property(hinge, "modulate", Color(0.5, 0.5, 0.5), 0.35)
+	ChoreList.finish("Commode", false)
 	JumpScare.play()

@@ -71,3 +71,4 @@ func loosen_nut() -> void:
 	var tween := create_tween()
 	tween.tween_property(brace, "rotation_degrees", -720.0, 1.2) \
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	ChoreList.finish("WheelNut", true)

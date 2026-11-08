@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://c57d7mhxuvdg"]
+
+[ext_resource type="Script" uid="uid://2t51cufwjo3" path="res://Scripts/chore_list.gd" id="1_nf8pk"]
+
+[node name="ChoreList" type="CanvasLayer" unique_id=143188522]
+process_mode = 3
+script = ExtResource("1_nf8pk")
+
+[node name="ListPanel" type="PanelContainer" parent="." unique_id=1575281029]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 174.0
+
+[node name="VBox" type="VBoxContainer" parent="ListPanel" unique_id=1592964048]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="ListPanel/VBox" unique_id=1175849240]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.78039217, 1, 1)
+text = "TONIGHT'S CHORES"
+
+[node name="Tasks" type="VBoxContainer" parent="ListPanel/VBox" unique_id=1686996445]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Door" type="Label" parent="ListPanel/VBox/Tasks" unique_id=23603257]
+layout_mode = 2
+text = "Open the bedroom door"
+
+[node name="Commode" type="Label" parent="ListPanel/VBox/Tasks" unique_id=2054684030]
+layout_mode = 2
+text = "Lift the commode lid"
+
+[node name="WheelNut" type="Label" parent="ListPanel/VBox/Tasks" unique_id=132259301]
+layout_mode = 2
+text = "Loosen the wheel nut"
+
+[node name="Fan" type="Label" parent="ListPanel/VBox/Tasks" unique_id=741620163]
+layout_mode = 2
+text = "Switch on the ceiling fan"
+
+[node name="Tea" type="Label" parent="ListPanel/VBox/Tasks" unique_id=892811776]
+layout_mode = 2
+text = "Serve tea to the ghost"
+
+[node name="Ending" type="ColorRect" parent="." unique_id=825802211]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.9098039)
+
+[node name="Center" type="CenterContainer" parent="Ending" unique_id=2031999267]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Ending/Center" unique_id=1648433239]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="EndTitle" type="Label" parent="Ending/Center/VBox" unique_id=1227072648]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.78039217, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "YOU SURVIVED THE NIGHT"
+horizontal_alignment = 1
+
+[node name="Summary" type="Label" parent="Ending/Center/VBox" unique_id=1647553390]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="Ending/Center/VBox" unique_id=411291106]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play again"
+
+[connection signal="pressed" from="Ending/Center/VBox/PlayAgainButton" to="." method="_on_play_again_button_pressed"]

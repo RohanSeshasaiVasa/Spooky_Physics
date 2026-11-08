@@ -51,9 +51,14 @@ func _on_push_button_pressed() -> void:
 	
 	if absf(alpha - correct_alpha) < 0.05:
 		is_done = true
+		tween.tween_callback(ChoreList.finish.bind("Fan", true))
 	elif alpha > correct_alpha:
 		wobbling = true
 		tween.tween_callback(fly_off)
+	else:
+		tween.tween_interval(0.5)
+		tween.tween_property(self, "spin_speed", start_speed, 2.0)
+		tween.tween_callback(allow_retry)
 		
 func fly_off() -> void:
 	wobbling = false
@@ -65,6 +70,8 @@ func fly_off() -> void:
 	tween.tween_property(blades, "scale", Vector2(0.8, 0.8), 0.5)
 	tween.tween_property(blades, "modulate", Color(0.5, 0.5, 0.5), 0.5)
 	tween.tween_property(self, "spin_speed", 0.0, 0.8)
+	
+	ChoreList.finish("Fan", false)
 
 func allow_retry() -> void:
 	enabled = true

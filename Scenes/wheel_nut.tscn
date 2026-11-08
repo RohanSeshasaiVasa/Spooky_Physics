@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkt7tjfuk0s7k" path="res://Scripts/wheel_nut.gd" id="1_8n88y"]
 [ext_resource type="Texture2D" uid="uid://8ss4kwaliowh" path="res://Assets/wheel.png" id="2_8n88y"]
+[ext_resource type="Material" uid="uid://b3wx0q6hjkj6w" path="res://Assets/unshaded.tres" id="3_m3ar2"]
 [ext_resource type="Texture2D" uid="uid://n4w1lu17hnjx" path="res://Assets/couple_diagram.png" id="4_8n88y"]
 [ext_resource type="LabelSettings" uid="uid://c5i4buj4vu1qn" path="res://Assets/pormpt_label.tres" id="4_g4hnq"]
 [ext_resource type="Texture2D" uid="uid://b86b42850tyhv" path="res://Assets/wheel_brace.png" id="5_8n88y"]
@@ -29,6 +30,7 @@ shape = SubResource("CircleShape2D_m3ar2")
 shape = SubResource("CircleShape2D_8es50")
 
 [node name="Prompt" type="Label" parent="." unique_id=1941139618]
+material = ExtResource("3_m3ar2")
 offset_left = -59.0
 offset_top = -56.0
 offset_right = 61.0

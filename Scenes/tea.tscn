@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://03fftwm2q05g" path="res://Assets/teacup.png" id="3_0evca"]
 [ext_resource type="LabelSettings" uid="uid://c5i4buj4vu1qn" path="res://Assets/pormpt_label.tres" id="4_6jo7a"]
 [ext_resource type="Texture2D" uid="uid://6qjmxi7di5eb" path="res://Assets/ghost.png" id="4_wyyjc"]
+[ext_resource type="Material" uid="uid://b3wx0q6hjkj6w" path="res://Assets/unshaded.tres" id="5_sy3t5"]
 [ext_resource type="Texture2D" uid="uid://b5weshxgenwky" path="res://Assets/tea_diagram.png" id="6_wyyjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38ogf"]
@@ -30,6 +31,7 @@ shape = SubResource("RectangleShape2D_38ogf")
 texture = ExtResource("3_0evca")
 
 [node name="Ghost" type="Sprite2D" parent="." unique_id=2123383521]
+material = ExtResource("5_sy3t5")
 position = Vector2(204, 0)
 texture = ExtResource("4_wyyjc")
 
@@ -40,6 +42,7 @@ position = Vector2(-30, 0)
 shape = SubResource("CircleShape2D_wyyjc")
 
 [node name="Prompt" type="Label" parent="." unique_id=1941139618]
+material = ExtResource("5_sy3t5")
 offset_left = -90.0
 offset_top = -48.0
 offset_right = 30.0

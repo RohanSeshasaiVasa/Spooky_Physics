@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2p7t421brcd1" path="res://Assets/toilet.png" id="2_pds5p"]
 [ext_resource type="Texture2D" uid="uid://bawrj2h87hqcs" path="res://Assets/toilet_lid.png" id="3_65q3a"]
 [ext_resource type="LabelSettings" uid="uid://c5i4buj4vu1qn" path="res://Assets/pormpt_label.tres" id="3_g103t"]
+[ext_resource type="Material" uid="uid://b3wx0q6hjkj6w" path="res://Assets/unshaded.tres" id="4_g103t"]
 [ext_resource type="Texture2D" uid="uid://sh36ueguh3fe" path="res://Assets/torque_lid_diagram.png" id="5_65q3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38ogf"]
@@ -39,6 +40,7 @@ position = Vector2(0, 48)
 shape = SubResource("RectangleShape2D_mw28t")
 
 [node name="Prompt" type="Label" parent="." unique_id=1941139618]
+material = ExtResource("4_g103t")
 offset_left = -60.0
 offset_top = -20.0
 offset_right = 60.0

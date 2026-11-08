@@ -9,6 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://dvutstbhpd8qg" path="res://Scenes/fan.tscn" id="7_2u2x3"]
 [ext_resource type="PackedScene" uid="uid://bm2srmnak33dc" path="res://Scenes/tea.tscn" id="8_gfhlv"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gfhlv"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ppwsj"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vdgdd"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bg37v"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cy6o3"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8l06"]
 texture = ExtResource("1_ftrsn")
 texture_region_size = Vector2i(32, 32)
@@ -18,18 +33,24 @@ texture_region_size = Vector2i(32, 32)
 3:0/0 = 0
 4:0/0 = 0
 0:1/0 = 0
+0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_gfhlv")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:1/0 = 0
+1:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ppwsj")
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:1/0 = 0
+2:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_vdgdd")
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:1/0 = 0
+3:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_bg37v")
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:1/0 = 0
+4:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_cy6o3")
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_bde3n"]
 tile_size = Vector2i(32, 32)
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_q8l06")
 
@@ -43,7 +64,7 @@ tile_set = SubResource("TileSet_bde3n")
 position = Vector2(192, 273)
 
 [node name="Player" parent="." unique_id=1013173007 instance=ExtResource("1_xvb4y")]
-position = Vector2(-272, -27)
+position = Vector2(178, 94)
 
 [node name="Commode" parent="." unique_id=738299177 instance=ExtResource("4_c8aik")]
 position = Vector2(530, 66)
@@ -93,5 +114,8 @@ text = "I accept"
 
 [node name="Tea" parent="." unique_id=301102937 instance=ExtResource("8_gfhlv")]
 position = Vector2(167, 528)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=839438627]
+color = Color(0.101960786, 0.078431375, 0.14901961, 1)
 
 [connection signal="pressed" from="Warning/Center/VBox/AcceptButton" to="Warning" method="_on_accept_button_pressed"]
